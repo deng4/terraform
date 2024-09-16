@@ -1,0 +1,7 @@
+vpc_cidr    = "10.1.0.0/16"
+subnet_cidr = "10.1.0.0/24"
+allow_all   = "0.0.0.0/0"
+ssh_port    = "22"
+http_port   = "80"
+environment = "test"
+region      = "eu-central-1"
