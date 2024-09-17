@@ -1,12 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "5.67.0"
-    }
-  }
-}
-
 resource "aws_instance" "myec2" {
   ami                         = data.aws_ami.my_image.image_id
   instance_type               = var.environment == "test" ? "t2.micro" : "t3a.medium"

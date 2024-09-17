@@ -6,6 +6,7 @@
 *.tfstate.*
 
 # Crash log files
+*.tflogs
 crash.log
 crash.*.log
 
