@@ -13,3 +13,9 @@ variable "http_port" {}
 variable "environment" {}
 
 variable "region" {}
+
+variable "sg_ports" {
+  type        = list(number)
+  description = "list of ingress ports"
+  default     = [22, 80, 8080, 9000]
+}
