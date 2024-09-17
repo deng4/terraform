@@ -23,7 +23,7 @@ resource "aws_route_table" "docker_rt" {
   }
 
   tags = {
-    Name = "docker_ec2_route_table"
+    Name = "$(locals.Prefix)_route_table"
   }
 }
 
@@ -58,14 +58,3 @@ resource "aws_internet_gateway_attachment" "docker_gw_attachment" {
   internet_gateway_id = aws_internet_gateway.docker_gw.id
   vpc_id              = aws_vpc.main.id
 }
-
-# resource "aws_eip" "docker_ec2_public_ip" {
-#   domain   = "vpc"
-#   instance = aws_instance.myec2.id
-# }
-
-# resource "aws_eip_association" "adding_pub_ip" {
-#   instance_id = aws_instance.myec2.id
-#   allocation_id = aws_network_interface.docker_ec2_interface.id
-# }
-
