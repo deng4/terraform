@@ -17,4 +17,9 @@ resource "aws_instance" "myec2" {
     Owner        = local.Owner
     CreationDate = local.CreationDate
   }
+
+  lifecycle {
+    create_before_destroy = true
+    ignore_changes = [ tags["CreationDate"], private_dns_name_options ]
+  }
 }
