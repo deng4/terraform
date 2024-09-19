@@ -25,8 +25,6 @@ resource "aws_security_group" "allow_ssh_http" {
   }
 }
 
-
-
 # resource "aws_vpc_security_group_ingress_rule" "allow_ssh" {
 #   security_group_id = aws_security_group.allow_ssh_http.id
 #   cidr_ipv4         = "${var.my_ip}/32"
@@ -54,7 +52,4 @@ resource "aws_security_group" "allow_ssh_http" {
 #   security_group_id = aws.security_group_id.id
 #   cidr_ipv4 = "$(var.my_up)/32"
 #   ip_protocol = "tcp"
-
-
-
 # }

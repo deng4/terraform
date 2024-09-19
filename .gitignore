@@ -39,7 +39,7 @@ terraform.rc
 
 # Ignore plan files
 *.tfplan
-
+*.plan
 # Ignore lock files
 
 *.lock.hcl
