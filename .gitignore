@@ -47,4 +47,3 @@ terraform.rc
 # backend
 
 backend.tf
-ec2_with_docker/backend.tf
