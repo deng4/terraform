@@ -43,3 +43,8 @@ terraform.rc
 # Ignore lock files
 
 *.lock.hcl
+
+# backend
+
+backend.tf
+ec2_with_docker/backend.tf

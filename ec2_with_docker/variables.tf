@@ -4,15 +4,14 @@ variable "subnet_cidr" {}
 
 variable "allow_all" {}
 
-variable "my_ip" {}
-
-variable "ssh_port" {}
-
-variable "http_port" {}
+variable "my_ip" {
+  type = string
+  default = ""
+}
 
 variable "environment" {}
 
-variable "region" {}
+variable "key_name" {}
 
 variable "sg_ports" {
   type        = list(number)

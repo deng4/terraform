@@ -2,7 +2,7 @@
 
 resource "aws_security_group" "allow_ssh_http" {
   name   = "allow_ssh"
-  vpc_id = aws_vpc.main.id
+  vpc_id = module.vpc.vpc_id
 
 
 

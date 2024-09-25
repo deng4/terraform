@@ -20,14 +20,24 @@
 
 #   lifecycle {
 #     create_before_destroy = true
-#     ignore_changes = [ tags["CreationDate"], private_dns_name_options ]
+#     ignore_changes = [ tags["CreationDate"], private_dns_name_options, ssociate_public_ip_address ]
 #   }
 # }
 
 
 
 module "my_ec2" {
-  source="./modules/ec2"
-  subnet_id = "${aws_subnet.docker_subnet.id}"
-  security_groups_ids = "${aws_security_group.allow_ssh_http.id}"
+  source              = "./modules/ec2"
+  instance_type       = var.environment == "test" ? "t2.micro" : "t3a.medium"
+  key_name            = var.key_name
+  subnet_id           = aws_subnet.docker_subnet.id
+  security_groups_ids = aws_security_group.allow_ssh_http.id
+
+
+  startup_script = local.StartUpScriptDocker
+
+  # TAGS SECTION
+  Owner        = local.Owner
+  Purpose      = local.Usage
+  CreationDate = local.CreationDate
 }
