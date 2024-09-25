@@ -4,10 +4,7 @@ variable "subnet_cidr" {}
 
 variable "allow_all" {}
 
-variable "my_ip" {
-  type = string
-  default = ""
-}
+variable "my_ip" {}
 
 variable "environment" {}
 
