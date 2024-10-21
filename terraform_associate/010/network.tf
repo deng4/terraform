@@ -1,12 +1,22 @@
-resource "aws_security_group" "main" {
-    name = "main_security_group"
-    vpc_id = "vpc-9a3bcdf0"
-}
+resource "aws_security_group" "allow_ssh_http" {
+  name   = "allow_ssh"
+  vpc_id = data.aws_vpc.main.id
 
-resource "aws_vpc_security_group_ingress_rule" "name" {
-    security_group_id = aws_security_group.main.id
-    cidr_ipv4 = ["${var.my_ip}/32"]
-    ip_protocol = "tcp"
-    from_port = 22
-    to_port = 22  
+  dynamic "ingress" {
+    for_each = var.sg_ports
+    iterator = port
+    content {
+      from_port   = port.value
+      to_port     = port.value
+      protocol    = "tcp"
+      cidr_blocks = ["${var.my_ip}/32"]
+    }
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.allow_all]
+  }
 }
