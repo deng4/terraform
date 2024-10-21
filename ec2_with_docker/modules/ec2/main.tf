@@ -10,6 +10,10 @@ resource "aws_instance" "myec2" {
   subnet_id              = var.subnet_id
   user_data              = var.startup_script
 
+  provisioner "local-exec" {
+    command = "echo ${self.private_ip} >> private_ips.txt"
+  }
+
   tags = {
     Name         = "MyDockerEC2"
     Purpose      = var.Purpose

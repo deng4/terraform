@@ -4,8 +4,6 @@ module "my_ec2" {
   key_name            = var.key_name
   subnet_id           = aws_subnet.docker_subnet.id
   security_groups_ids = aws_security_group.allow_ssh_http.id
-
-
   startup_script = local.StartUpScriptDocker
 
   # TAGS SECTION
