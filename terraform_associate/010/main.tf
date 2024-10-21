@@ -1,3 +1,14 @@
+terraform {
+  cloud {
+
+    organization = "deng4-lab01"
+
+    workspaces {
+      name = "provisioners"
+    }
+  }
+}
+
 resource "aws_key_pair" "deployer" {
   key_name   = "deployer-key"
   public_key = var.pub_sshkey_for_ec2
