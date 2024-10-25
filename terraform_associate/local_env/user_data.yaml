@@ -1,7 +1,7 @@
 #cloud-config
 
 packages:
-  - httpd
+  - apache2
 runcmd:
   - systemctl start httpd
   - sudo systemctl enable httpd

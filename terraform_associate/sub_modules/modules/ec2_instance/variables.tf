@@ -12,11 +12,3 @@ variable "sg_ports" {
   description = "list of ingress ports"
   default     = [22, 80, 8080, 9000]
 }
-
-variable "worlds" {
-  type = map
-}
-
-variable "worlds_splat" {
-  type = list
-}

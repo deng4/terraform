@@ -1,11 +1,9 @@
-provider "aws" {
-  region = "eu-central-1"
-  alias = "central"
-}
-
-provider "aws" {
-  region = "eu-west-2"
-  alias = "west"
+terraform {
+  required_providers {
+    aws = {
+        source = "hashicorp/aws"
+    }
+  }
 }
 
 resource "aws_key_pair" "deployer" {
@@ -24,18 +22,6 @@ resource "aws_instance" "web" {
     Name = "my_local_env_ec2"
   }
 }
-
-resource "aws_s3_bucket" "central_bucket" {
-  bucket = "mybucket2133-central"
-  provider = aws.central
-}
-
-resource "aws_s3_bucket" "west_bucket" {
-  bucket = "mybucket2133-west"
-  provider = aws.west
-}
-
-
 
 
 # provisioner "local-exec" {

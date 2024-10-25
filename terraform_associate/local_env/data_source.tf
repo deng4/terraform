@@ -23,5 +23,5 @@ data "aws_security_group" "my_ec2_sg" {
 }
 
 data "template_file" "user_data" {
-  template = file("./user-data.yaml")
+  template = file("./user_data.yaml")
 }
