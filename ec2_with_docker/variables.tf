@@ -8,7 +8,7 @@ variable "my_ip" {}
 
 variable "environment" {}
 
-variable "key_name" {}
+
 
 variable "sg_ports" {
   type        = list(number)
