@@ -1,0 +1,38 @@
+terraform {
+  
+}
+
+variable "planets" {
+  type = list
+  default = [ "mars", "earth", "moon"]
+}
+
+variable "plans" {
+    type = map
+    default = {
+        "PlanA" = "10 usd",
+        "PlanB" = "50 usd",
+        "PlanC" = "100 usd"
+    }
+  
+}
+
+variable "plans_object" {
+    type = object ({
+        PlanA = string
+        PlanAmount = number
+        PlanC = string
+    })
+
+    default ={
+        "PlanA" = "10 usd",
+        "PlanAmount" = 10,
+        "PlanC" = "100 usd"
+    }   
+}
+
+variable "random" {
+    type = tuple([ string,number,bool ])
+    default = [ "hey", 22, false ]
+  
+}
