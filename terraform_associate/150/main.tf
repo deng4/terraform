@@ -16,3 +16,17 @@ output "subnet_2" {
 output "subnet_3" {
   value = local.subnet_3
 }
+
+variable "items" {
+    type = list
+    default = [null,null,"","last"]
+  
+}
+
+variable "some" {
+  type = map
+  default = {
+    "he" = "boom",
+    "gnarl" = "doomn"
+  }
+}
