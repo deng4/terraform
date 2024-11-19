@@ -12,5 +12,3 @@ locals {
     prod = "t3a.medium"
   }
 }
-
-
