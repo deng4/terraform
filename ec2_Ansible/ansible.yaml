@@ -1,0 +1,16 @@
+#cloud-config
+ansible:
+  package_name: ansible-core
+  install_method: distro
+  pull:
+    url: https://github.com/holmanb/vmboot.git
+    playbook_name: ubuntu.yml
+
+runcmd:
+  - mkdir -p /home/ubuntu/.ssh
+  - chown ubuntu:ubuntu /home/ubuntu/.ssh
+  - chmod 700 /home/ubuntu/.ssh
+  - sudo -u ubuntu ssh-keygen -t ed25519 -f /home/ubuntu/.ssh/id_ed25519 -q -N ""
+  - chown ubuntu:ubuntu /home/ubuntu/.ssh/id_ed25519 /home/ubuntu/.ssh/id_ed25519.pub
+  - chmod 600 /home/ubuntu/.ssh/id_ed25519
+  - chmod 644 /home/ubuntu/.ssh/id_ed25519.pu

@@ -1,0 +1,8 @@
+#cloud-config
+package_update: true
+packages:
+  - fontconfig
+  - openjdk-17-jre
+
+
+# ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOhDjZMrbLkXwyiLy4Ue0LaJCxEuftiosZ4NihFo8bxK ubuntu@ip-172-31-3-125
