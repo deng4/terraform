@@ -36,7 +36,6 @@ resource "aws_subnet" "docker_subnet" {
 
 resource "aws_network_interface" "docker_ec2_interface" {
   subnet_id       = aws_subnet.docker_subnet.id
-  private_ips     = ["10.1.1.13"]
   security_groups = [aws_security_group.allow_ssh_http.id]
 
 }

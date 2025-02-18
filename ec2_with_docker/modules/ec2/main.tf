@@ -1,11 +1,12 @@
 resource "aws_key_pair" "deployer" {
-  public_key = "${file("/home/$USER/.ssh/terraform.pub")}"
+  key_name = "my_aws_terraform_key_for_wsl"
+  public_key = "${file("/home/${var.current_user}/.ssh/terraform.pub")}"
 }
 
 resource "aws_instance" "myec2" {
-  ami                         = data.aws_ami.my_image.image_id
+  ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
-  key_name                    = aws_key_pair.deployer.public_key
+  key_name                    = aws_key_pair.deployer.key_name
   associate_public_ip_address = "true" ### ALLOWS TO CREATE ELASTIC IP TO ATTACH TO VM
   private_dns_name_options {
     enable_resource_name_dns_a_record = "true"

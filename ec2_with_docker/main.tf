@@ -1,7 +1,4 @@
 terraform {
-
-  required_version = ">=1.9.5"
-
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -16,6 +13,7 @@ module "my_ec2" {
   subnet_id           = aws_subnet.docker_subnet.id
   security_groups_ids = aws_security_group.allow_ssh_http.id
   startup_script = local.StartUpScriptDocker
+  current_user = var.current_user
 
   # TAGS SECTION
 

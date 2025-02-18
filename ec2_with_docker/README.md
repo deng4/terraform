@@ -1,0 +1,1 @@
+export TF_VAR_my_ip=$(curl icanhazip.com)
